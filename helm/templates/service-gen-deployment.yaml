@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: TeamManagementSystem
+  labels:
+    app: TeamManagementSystem
+spec:
+  selector:
+    matchLabels:
+      app: TeamManagementSystem
+  replicas:  1
+  template:
+    metadata:
+      labels:
+        app: TeamManagementSystem
+    spec:
+      containers:
+       - name: TeamManagementSystem
+         image: evolza/TeamManagementSystem:latest
+         imagePullPolicy: Always
+         ports:
+          - containerPort: 8080
+            name: rest
+      imagePullSecrets:
+          - name: notavailable
